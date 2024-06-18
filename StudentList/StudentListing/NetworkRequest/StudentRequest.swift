@@ -19,11 +19,8 @@ struct StudentRequest: URLRequestProtocol {
     
     var queryParams: [String: String]?
     
-    init(query: String? = nil, additionalHeaders: [String: String]? = nil) {
-        
-        if let query = query, !query.isEmpty {
-            queryParams = ["query": query]
-        }
+    init(queryParams: [String: String]? = nil, additionalHeaders: [String: String]? = nil) {
+        self.queryParams = queryParams
         self.additionalHeaders = additionalHeaders
     }
 }

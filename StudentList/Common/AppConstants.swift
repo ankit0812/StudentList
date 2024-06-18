@@ -10,7 +10,7 @@ import Foundation
 ///NOTE: THIS FILE DOES NOT REQUIRE LOCALISATION
 
 struct AppConstants {
-    static var STUDENTS: String = "STUDENTS"
-    static var EMPTY_STRING: String = ""
-
+    static let STUDENTS: String = "STUDENTS"
+    static let EMPTY_STRING: String = ""
+    static let PAGE_LIMIT: Int = 20
 }

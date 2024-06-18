@@ -29,6 +29,12 @@ final class StudentListView: UIView {
         return loader
     }()
     
+    let tableBackgroundView: GenericBackgroundView = {
+        let tableBackgroundView = GenericBackgroundView(image: UIImage(named: "ico_student"), labelText: "No Students!")
+        tableBackgroundView.translatesAutoresizingMaskIntoConstraints = false
+        return tableBackgroundView
+    }()
+        
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -45,22 +51,25 @@ final class StudentListView: UIView {
         addSubview(tableView)
         addSubview(loader)
         
+        tableView.backgroundView = tableBackgroundView
+        tableView.backgroundView?.isHidden = true
+        
         setupConstraints()
     }
     
     private func setupConstraints() {
-        NSLayoutConstraint.activate([
-            searchBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            searchBar.leadingAnchor.constraint(equalTo: leadingAnchor),
-            searchBar.trailingAnchor.constraint(equalTo: trailingAnchor),
-            
-            tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            
-            loader.centerXAnchor.constraint(equalTo: centerXAnchor),
-            loader.centerYAnchor.constraint(equalTo: centerYAnchor)
-        ])
+        searchBar.setTop(with: safeAreaLayoutGuide.topAnchor)
+        searchBar.setLeading(with: leadingAnchor)
+        searchBar.setTrailing(with: trailingAnchor)
+
+        tableView.setTop(with: searchBar.bottomAnchor)
+        tableView.setLeading(with: leadingAnchor)
+        tableView.setTrailing(with: trailingAnchor)
+        tableView.setBottom(with: bottomAnchor)
+
+        loader.setCenterX()
+        loader.setCenterY()
+        
+        tableBackgroundView.setFullOnSuperView()
     }
 }

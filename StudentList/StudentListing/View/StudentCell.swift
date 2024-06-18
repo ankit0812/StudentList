@@ -44,24 +44,26 @@ final class StudentCell: UITableViewCell {
         addSubview(nameLabel)
         addSubview(phoneNumberLabel)
         
-        NSLayoutConstraint.activate([
-            studentImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            studentImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            studentImageView.widthAnchor.constraint(equalToConstant: 40),
-            studentImageView.heightAnchor.constraint(equalToConstant: 40),
-            
-            nameLabel.leadingAnchor.constraint(equalTo: studentImageView.trailingAnchor, constant: 16),
-            nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            
-            phoneNumberLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
-            phoneNumberLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 4),
-            phoneNumberLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
-        ])
+        setupConstraints()
+    }
+    
+    private func setupConstraints() {
+        studentImageView.setLeading(with: leadingAnchor, constant: 16)
+        studentImageView.setCenterY()
+        studentImageView.setWidth(width: 40)
+        studentImageView.setHeight(height: 40)
+
+        nameLabel.setLeading(with: studentImageView.trailingAnchor, constant: 16)
+        nameLabel.setTop(with: topAnchor, constant: 8)
+
+        phoneNumberLabel.setLeading(with: nameLabel.leadingAnchor)
+        phoneNumberLabel.setTop(with: nameLabel.bottomAnchor, constant: 4)
+        phoneNumberLabel.setBottom(with: bottomAnchor, constant: -8)
     }
     
     func configure(with student: Student) {
         studentImageView.image = UIImage(named: "ico_student")
-        nameLabel.text = student.name + "  \(student.id)"
+        nameLabel.text = student.name
         phoneNumberLabel.text = student.phone
     }
 }

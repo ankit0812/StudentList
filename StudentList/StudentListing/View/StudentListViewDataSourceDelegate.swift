@@ -17,37 +17,32 @@ final class StudentListViewDelegate: NSObject, UITableViewDataSource, UITableVie
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        debouncedSearch(query: searchText)
+        debouncedSearch(searchString: searchText)
     }
     
-    private func debouncedSearch(query: String) {
-        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(performSearch(_:)), object: query)
-        perform(#selector(performSearch(_:)), with: query, afterDelay: 0.5)
+    private func debouncedSearch(searchString: String) {
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(performSearch(_:)), object: searchString)
+        perform(#selector(performSearch(_:)), with: searchString, afterDelay: 0.5)
     }
     
-    @objc private func performSearch(_ query: String) {
-        viewModel.searchStudents(query: query)
+    @objc private func performSearch(_ searchString: String) {
+        viewModel.searchStudents(searchString: searchString)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.filteredStudents.count
+        return viewModel.students.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StudentCell", for: indexPath) as! StudentCell
-        let student = viewModel.filteredStudents[indexPath.row]
+        let student = viewModel.students[indexPath.row]
         cell.configure(with: student)
-        
-        if indexPath.row == viewModel.filteredStudents.count - 1 {
-            viewModel.loadStudents(query: viewModel.currentQuery)
-        }
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let currentViewController = viewController else { return }
-        let student = viewModel.filteredStudents[indexPath.row]
+        let student = viewModel.students[indexPath.row]
         StudentListingRouter.navigateToStudentDetail(from: currentViewController, with: student)
         tableView.deselectRow(at: indexPath, animated: true)
     }

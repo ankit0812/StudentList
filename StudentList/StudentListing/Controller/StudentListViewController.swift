@@ -42,6 +42,7 @@ final class StudentListViewController: UIViewController {
     private func setupBindings() {
         viewModel.reloadTableViewClosure = { [weak self] in
             DispatchQueue.main.async {
+                self?.studentListView.tableView.backgroundView?.isHidden = self?.viewModel.shouldHideBackgroundView ?? true
                 self?.studentListView.tableView.reloadData()
             }
         }

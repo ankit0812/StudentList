@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9FCC9AE22C21C00300EA2FCC /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCC9AE12C21C00300EA2FCC /* URLRequestExtension.swift */; };
+		9FCC9AE42C2200D800EA2FCC /* GenericBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCC9AE32C2200D800EA2FCC /* GenericBackgroundView.swift */; };
+		9FCC9AE62C2204F900EA2FCC /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCC9AE52C2204F900EA2FCC /* UIViewExtension.swift */; };
 		9FF599492C201F36009BCF63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF599482C201F36009BCF63 /* AppDelegate.swift */; };
 		9FF5994B2C201F36009BCF63 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF5994A2C201F36009BCF63 /* SceneDelegate.swift */; };
 		9FF599522C201F39009BCF63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FF599512C201F39009BCF63 /* Assets.xcassets */; };
@@ -51,6 +54,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9FCC9AE12C21C00300EA2FCC /* URLRequestExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtension.swift; sourceTree = "<group>"; };
+		9FCC9AE32C2200D800EA2FCC /* GenericBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericBackgroundView.swift; sourceTree = "<group>"; };
+		9FCC9AE52C2204F900EA2FCC /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		9FF599452C201F36009BCF63 /* StudentList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudentList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FF599482C201F36009BCF63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FF5994A2C201F36009BCF63 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +112,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9FCC9AE02C21BFF400EA2FCC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9FCC9AE12C21C00300EA2FCC /* URLRequestExtension.swift */,
+				9FCC9AE52C2204F900EA2FCC /* UIViewExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		9FF5993C2C201F36009BCF63 = {
 			isa = PBXGroup;
 			children = (
@@ -245,19 +260,13 @@
 		9FF5999A2C204C46009BCF63 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				9FF5999B2C204C50009BCF63 /* Extensions */,
+				9FCC9AE02C21BFF400EA2FCC /* Extensions */,
 				9FF5999D2C204C89009BCF63 /* AppLiterals.swift */,
 				9FF5999F2C204C94009BCF63 /* AppConstants.swift */,
 				9FF599A12C205275009BCF63 /* AppColors.swift */,
+				9FCC9AE32C2200D800EA2FCC /* GenericBackgroundView.swift */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		9FF5999B2C204C50009BCF63 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,6 +400,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FF5998D2C202C0D009BCF63 /* StudentListViewController.swift in Sources */,
+				9FCC9AE22C21C00300EA2FCC /* URLRequestExtension.swift in Sources */,
+				9FCC9AE62C2204F900EA2FCC /* UIViewExtension.swift in Sources */,
 				9FF599A02C204C94009BCF63 /* AppConstants.swift in Sources */,
 				9FF5998B2C202BB3009BCF63 /* StudentListingRouter.swift in Sources */,
 				9FF599942C204AC4009BCF63 /* NetworkManager.swift in Sources */,
@@ -399,6 +410,7 @@
 				9FF599492C201F36009BCF63 /* AppDelegate.swift in Sources */,
 				9FF5998F2C202C65009BCF63 /* StudentCell.swift in Sources */,
 				9FF599A62C206332009BCF63 /* StudentListViewDataSourceDelegate.swift in Sources */,
+				9FCC9AE42C2200D800EA2FCC /* GenericBackgroundView.swift in Sources */,
 				9FF599A42C2062FE009BCF63 /* StudentListView.swift in Sources */,
 				9FF599992C204BD1009BCF63 /* StudentRequest.swift in Sources */,
 				9FF599832C2024D2009BCF63 /* StudentDetailBuilder.swift in Sources */,

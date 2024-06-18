@@ -60,20 +60,18 @@ final class StudentDetailViewController: UIViewController {
     }
     
     private func setupConstraints() {
-        NSLayoutConstraint.activate([
-            studentImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            studentImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            studentImageView.widthAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.40),
-            studentImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.40),
-            
-            nameLabel.topAnchor.constraint(equalTo: studentImageView.bottomAnchor, constant: 16),
-            nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            
-            phoneNumberLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
-            phoneNumberLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            phoneNumberLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
-        ])
+        studentImageView.setCenterX()
+        studentImageView.setCenterY()
+        studentImageView.setWidth(width: view.heightAnchor, multiplier: 0.40)
+        studentImageView.setHeight(height: view.heightAnchor, multiplier: 0.40)
+
+        nameLabel.setTop(with: studentImageView.bottomAnchor, constant: 16)
+        nameLabel.setLeading(with: view.leadingAnchor, constant: 16)
+        nameLabel.setTrailing(with: view.trailingAnchor, constant: -16)
+
+        phoneNumberLabel.setTop(with: nameLabel.bottomAnchor, constant: 8)
+        phoneNumberLabel.setLeading(with: view.leadingAnchor, constant: 16)
+        phoneNumberLabel.setTrailing(with: view.trailingAnchor, constant: -16)
     }
     
     private func configureUI() {

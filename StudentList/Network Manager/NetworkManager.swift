@@ -16,6 +16,7 @@ class NetworkManager {
     func performRequest<T: Decodable>(_ request: URLRequestProtocol, completion: @escaping (Result<T, Error>) -> Void) {
         do {
             let urlRequest = try request.asURLRequest()
+            debugPrint(urlRequest.cURL())
             let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
                 if let error = error {
                     DispatchQueue.main.async {
